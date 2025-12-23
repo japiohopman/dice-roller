@@ -1,0 +1,67 @@
+{
+  "hash": "2165a22d",
+  "configHash": "e319d068",
+  "lockfileHash": "73db2caf",
+  "browserHash": "f2b7210b",
+  "optimized": {
+    "react": {
+      "src": "../../react/index.js",
+      "file": "react.js",
+      "fileHash": "2845ead6",
+      "needsInterop": true
+    },
+    "react/jsx-dev-runtime": {
+      "src": "../../react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "763660e3",
+      "needsInterop": true
+    },
+    "react/jsx-runtime": {
+      "src": "../../react/jsx-runtime.js",
+      "file": "react_jsx-runtime.js",
+      "fileHash": "656da373",
+      "needsInterop": true
+    },
+    "@3d-dice/dice-box": {
+      "src": "../../@3d-dice/dice-box/dist/dice-box.es.js",
+      "file": "@3d-dice_dice-box.js",
+      "fileHash": "a6f3e35f",
+      "needsInterop": false
+    },
+    "@3d-dice/dice-ui": {
+      "src": "../../@3d-dice/dice-ui/src/index.js",
+      "file": "@3d-dice_dice-ui.js",
+      "fileHash": "d6fb05e7",
+      "needsInterop": false
+    },
+    "react-dom/client": {
+      "src": "../../react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "093f8ae8",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "world.none-7KK34STB": {
+      "file": "world__none-7KK34STB.js"
+    },
+    "chunk-4HAMFFQC": {
+      "file": "chunk-4HAMFFQC.js"
+    },
+    "world.offscreen-XLAZ3TGJ": {
+      "file": "world__offscreen-XLAZ3TGJ.js"
+    },
+    "world.onscreen-SJCKFHOK": {
+      "file": "world__onscreen-SJCKFHOK.js"
+    },
+    "chunk-MBQ5N4SU": {
+      "file": "chunk-MBQ5N4SU.js"
+    },
+    "chunk-AVJBRB4X": {
+      "file": "chunk-AVJBRB4X.js"
+    },
+    "chunk-EQCVQC35": {
+      "file": "chunk-EQCVQC35.js"
+    }
+  }
+}

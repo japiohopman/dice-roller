@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Box</title>
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        #dice-box {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        #ui-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <main id="dice-box"></main>
+    <div id="ui-container">
+        <div id="advanced-roller-container"></div>
+        <div id="display-results-container"></div>
+    </div>
+    <script type="module">
+        import DiceBox from './src/index.js';
+        import { AdvancedRoller, DisplayResults, BoxControls } from '@3d-dice/dice-ui/src/index.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const diceBox = new DiceBox({
+                container: '#dice-box',
+                assetPath: '/assets/',
+            });
+
+            const displayResults = new DisplayResults('#display-results-container');
+
+            const advancedRoller = new AdvancedRoller({
+                target: '#advanced-roller-container',
+                onSubmit: (notation) => {
+                    diceBox.roll(notation);
+                },
+                onClear: () => {
+                    diceBox.clear();
+                    displayResults.clear();
+                }
+            });
+
+            diceBox.onRollComplete = (results) => {
+                displayResults.showResults(results);
+            };
+
+            diceBox.init().then(() => {
+                diceBox.resizeWorld(); // Force a resize after initialization
+                const onUpdate = (config) => {
+                    diceBox.updateConfig(config);
+                };
+
+                const boxControls = new BoxControls({
+                    themes: Object.keys(diceBox.themesLoadedData),
+                    onUpdate: onUpdate,
+                    themeColor: diceBox.config.themeColor
+                });
+                // for some reason dat.gui is not updating the dropdown with the new themes
+                // this is a workaround to force the update
+                boxControls.themeSelect.remove();
+                boxControls.themeSelect = boxControls.gui.__folders.Rendering.add(boxControls.config, 'theme', Object.keys(diceBox.themesLoadedData)).onChange(boxControls.handleUpdate.bind(boxControls));
+                
+                diceBox.roll("2d6");
+            });
+        });
+    </script>
+</body>
+</html>

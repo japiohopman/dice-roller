@@ -1,0 +1,16 @@
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+newModelFiles
+oldModelFiles
+oldFiles
+stash
+public-stash
+notes.txt
+stats.html
+.history
+
+# Generated theme assets (source is packages/dice-themes)
+public/assets/themes
